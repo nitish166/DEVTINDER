@@ -19,4 +19,5 @@
 - Order of the routes matter a lot
 - Install Postman app and make a workspace/collection > test API call
 - Write logic to handle GET, POST, PATCH, DELETE, API Calls and test them on Postman
+- Write logic to handle GET, POST, PATCH, DELETE API Calls and test them on Postman
 
