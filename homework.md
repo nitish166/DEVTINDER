@@ -19,8 +19,15 @@
 - Order of the routes matter a lot
 - Install Postman app and make a workspace/collection > test API call
 - Write logic to handle GET, POST, PATCH, DELETE, API Calls and test them on Postman
-- Write logic to handle GET, POST, PATCH, DELETE API Calls and test them on Postman
 - Explore routing and use of ?, +, (), * in the routes
 - use of regex in routes /a, /.*fly$/
 - Reading the query parms in routes
 - Reading the dynamic routes
+
+
+- Multiple Route Handlers - Play with the code
+- next()
+- next function and errors along with res.send()
+- app.use("/route", rH, [rH2, rH3], rH4, rH5);
+
+
