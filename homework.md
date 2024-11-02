@@ -29,5 +29,10 @@
 - next()
 - next function and errors along with res.send()
 - app.use("/route", rH, [rH2, rH3], rH4, rH5);
+- What is middleware? Why we use middleware?
+- How express JS basically handles requests behind the scenes
+- Difference between app.use and app.all
+- Write a dummy auth middleware for admin
+- Write a dummy auth middleware for all users, except /user/login
 
 

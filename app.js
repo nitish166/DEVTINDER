@@ -4,30 +4,25 @@ const app = express();
 
 const PORT = 7777;
 
-// app.use("/route", rH, [rH2, rH3], rH4, rH5);
+const {adminAuth, userAuth} = require("./src/middlewares/utlis")
 
-app.get(
-  "/user",
-  (req, res, next) => {
-    console.log("Handling the Route User1 !");
-    //res.send("Response 1");
-    next();
-  },
-  (req, res, next) => {
-    console.log("Handling the route user2 !");
-    //res.send("Response 2");
-    next();
-  },
-  (req, res, next) => {
-    console.log("Handling the route user3 !");
-    next();
-    //res.send("Response 3");
-  },
-  (req, res) => {
-    console.log("Handling the route user4 !");
-    res.send("Response 4");
-  }
-);
+app.use("/admin", adminAuth);
+
+app.post("/user/login", (req, res)=>{
+    res.send("User login successfully");
+})
+
+app.get("/user", userAuth, (req, res)=>{
+    res.send("User Data Sent");
+})
+
+app.get('/admin/getAllData', (req, res)=>{
+    res.send("All data sent");
+})
+
+app.delete("/admin/deleteUser", (req, res)=>{
+    res.send("Deleted a user");
+})
 
 app.listen(PORT, () => {
   console.log(`The server runing on ${PORT}`);
