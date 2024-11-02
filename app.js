@@ -4,7 +4,7 @@ const app = express();
 
 const PORT = 7777;
 
-const {adminAuth, userAuth} = require("./src/middlewares/utlis")
+const {adminAuth, userAuth} = require("./src/middlewares/auth")
 
 app.use("/admin", adminAuth);
 
