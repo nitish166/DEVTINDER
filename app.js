@@ -4,25 +4,20 @@ const app = express();
 
 const PORT = 7777;
 
-const {adminAuth, userAuth} = require("./src/middlewares/auth")
+app.get("/getUserData", (req, res) => {
+  try {
+    throw new Error("This is error msg.");
+    res.send("User Data sent");
+  } catch (error) {
+    res.status(500).send("Some Error occur, try contact to support team");
+  }
+});
 
-app.use("/admin", adminAuth);
-
-app.post("/user/login", (req, res)=>{
-    res.send("User login successfully");
-})
-
-app.get("/user", userAuth, (req, res)=>{
-    res.send("User Data Sent");
-})
-
-app.get('/admin/getAllData', (req, res)=>{
-    res.send("All data sent");
-})
-
-app.delete("/admin/deleteUser", (req, res)=>{
-    res.send("Deleted a user");
-})
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("Something went wrong");
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`The server runing on ${PORT}`);
