@@ -46,3 +46,10 @@
 - Push some documents using API calls from postman
 - Error handling using try and catch
 
+- JS object vs JSON (difference)
+- Add the express.json middleware to your app
+- Make our signup API dynamic to recive data from the end user
+- User.findOne with duplicate email ids, which object returned
+- API - GET user by email
+- API - feed API - GET /feed - get all the users from the database
+
