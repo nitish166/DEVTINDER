@@ -52,4 +52,22 @@
 - User.findOne with duplicate email ids, which object returned
 - API - GET user by email
 - API - feed API - GET /feed - get all the users from the database
+- Create a delete user API
+- Difference between PATCH and PUT
+- API - Update a user
+- Explore the Mongoose Documention for Model methods
+- What are options in a Model.findOneAndUpdate method, explore more about it
+- API - Update the user with email ID
+
+
+
+
+- Explore schematype options from the documents
+- add required, unique, lowercase, min, minLength, trim
+- add default
+- Create a custom validate function for gender
+- Improve the DB schema - PUT all appropiate validation on each field in schema
+- Add timestamps to the userSchema
+
+
 
