@@ -76,5 +76,6 @@
 - NEVER TRUST req.body
 
 
-
-
+- Validate data in Signup API
+- Install bcrypt package
+- Create PaswordHash using bcrypt.hash & save the user is excrupted password
