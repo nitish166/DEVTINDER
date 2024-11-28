@@ -4,9 +4,13 @@ const app = express();
 const User = require("./src/modules/user");
 const { validatesSignUpData } = require("./src/utils/validation");
 const bcrypt = require("bcrypt");
+var cookieParser = require("cookie-parser");
+var jwt = require("jsonwebtoken");
+const { userAuth } = require("./src/middlewares/auth");
 const PORT = 7777;
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.post("/signup", async (req, res) => {
   try {
@@ -38,17 +42,19 @@ app.post("/signup", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   try {
-    const { emailId, password } = req.body;
+    const { emailId, password, _id } = req.body;
 
     const user = await User.findOne({ emailId: emailId });
 
     if (!user) {
       throw new Error("Invalid Credentials");
     }
-
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (isPasswordValid) {
+      var token = jwt.sign({ _id: user._id }, "DEV@TINDER00714", { expiresIn: '7d' });
+
+      res.cookie("token", token, {expires: new Date(Date.now() + 8*3600000)});
       res.send("Login Successful!");
     } else {
       throw new Error("Invalid Credentials");
@@ -56,6 +62,22 @@ app.post("/login", async (req, res) => {
   } catch (err) {
     res.status(400).send("ERROR : " + err.message);
   }
+});
+
+app.get("/profile", userAuth, async (req, res) => {
+  try {
+    const user = req.user;
+    res.send(user);
+  } catch (err) {
+    res.status(400).send("ERROR : " + err.message);
+  }
+});
+
+app.post("/sendConnectionRequest", userAuth, async (req, res) => {
+  const user = req.user;
+  console.log("Sending a connection request");
+
+  res.send(user.firstName + " Sent connection request");
 });
 
 app.get("/user", async (req, res) => {
