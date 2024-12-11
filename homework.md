@@ -108,4 +108,18 @@
 - Create PATCH /profile/password API => forgot password API
 - Make you validate all data in every POST, PATCH apis
 
+- Create a connection request Schema
+- Send Connection Request API
+- Proper Validation of Data
+- Think about all corner cases
+- $or query $and query in mongooes 
+- schema.pre("save") function 
+- Read this articles about compound indexes - https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/?msockid=0650a1c664c36fc431c5b094656b6e34
+- Why should we not create a lot of indexes in DB?
+- Read more about indexes in MongoDB
+- Why do we need index in DB?
+- What is pro and cons of creating indexes?
+- ALWAYS THINK ABOUT CORNER CASES
+
+
 
